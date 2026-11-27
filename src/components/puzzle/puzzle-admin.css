@@ -1,0 +1,357 @@
+/* ==============================================================================
+   UpsellFlow - Puzzle Admin Stylesheet
+   Clean SaaS Light Theme & Dark Theme • Responsive Grid • Modern Modals
+   ============================================================================== */
+
+/* Modal Backdrop & Container */
+.puzzle-admin-modal-backdrop {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background: rgba(15, 23, 42, 0.6) !important;
+  backdrop-filter: blur(6px) !important;
+  -webkit-backdrop-filter: blur(6px) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 20px !important;
+  z-index: 9999 !important;
+  animation: adminModalFadeIn 0.2s ease-out forwards;
+}
+
+.puzzle-admin-modal-card {
+  width: 100%;
+  max-width: min(1040px, 95vw);
+  max-height: 90vh;
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 35px 90px -15px rgba(15, 23, 42, 0.35), 0 0 1px rgba(15, 23, 42, 0.1);
+  border: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: adminModalSlideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.puzzle-admin-modal-card.narrow {
+  max-width: min(720px, 95vw);
+}
+
+@keyframes adminModalFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes adminModalSlideUp {
+  from { opacity: 0; transform: translateY(16px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Jigsaw 3x3 Admin Preview Board */
+.admin-jigsaw-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  background: #0f172a;
+  padding: 12px;
+  border-radius: 16px;
+  border: 1px solid #334155;
+}
+
+.admin-jigsaw-cell {
+  aspect-ratio: 1 / 1;
+  border-radius: 8px;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.admin-jigsaw-cell:hover {
+  transform: scale(1.05);
+  z-index: 3;
+}
+
+.admin-jigsaw-cell.selected {
+  outline: 3px solid #10b981;
+  box-shadow: 0 0 16px rgba(16, 185, 129, 0.4);
+  z-index: 2;
+}
+
+.admin-jigsaw-cell.special {
+  border: 2px solid #f59e0b;
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.35);
+}
+
+.admin-jigsaw-cell.common {
+  border: 1px solid #334155;
+  background-color: #1e293b;
+}
+
+/* Form Styles */
+.puzzle-admin-grid-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.puzzle-admin-grid-form .full-width {
+  grid-column: 1 / -1;
+}
+
+.puzzle-admin-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 20px;
+}
+
+/* Puzzle Card & Elements Classes */
+.puzzle-admin-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+.puzzle-admin-card-header {
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 14px 18px;
+}
+
+.puzzle-sticker-item {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 16px;
+  transition: all 0.2s ease;
+}
+
+.puzzle-sticker-item:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+}
+
+.puzzle-target-banner {
+  background: #eef2ff;
+  border: 1px solid #e0e7ff;
+  border-radius: 12px;
+  padding: 12px 16px;
+}
+
+.puzzle-sticker-btn {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  color: #64748b;
+  border-radius: 8px;
+  padding: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+}
+
+.puzzle-sticker-btn:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+.puzzle-sticker-btn.danger {
+  color: #ef4444;
+}
+
+.puzzle-sticker-btn.danger:hover {
+  background: #fee2e2;
+  border-color: #fca5a5;
+  color: #dc2626;
+}
+
+/* ==============================================================================
+   Dark Mode Overrides for Puzzle Admin ([data-theme="dark"])
+   ============================================================================== */
+[data-theme="dark"] .puzzle-admin-card {
+  background: #111827 !important;
+  border-color: #1e293b !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
+  color: #f8fafc !important;
+}
+
+[data-theme="dark"] .puzzle-admin-card-header {
+  background: #162032 !important;
+  border-bottom-color: #1e293b !important;
+  color: #f8fafc !important;
+}
+
+[data-theme="dark"] .puzzle-admin-card-header .text-dark {
+  color: #f8fafc !important;
+}
+
+[data-theme="dark"] .puzzle-admin-card-header .text-muted {
+  color: #94a3b8 !important;
+}
+
+/* Sticker Items in Right Column */
+[data-theme="dark"] .puzzle-sticker-item {
+  background: #162032 !important;
+  border-color: #1e293b !important;
+  color: #f8fafc !important;
+}
+
+[data-theme="dark"] .puzzle-sticker-item:hover {
+  background: #1a253a !important;
+  border-color: #334155 !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45) !important;
+}
+
+[data-theme="dark"] .puzzle-sticker-item .text-dark {
+  color: #f8fafc !important;
+}
+
+[data-theme="dark"] .puzzle-sticker-item .text-muted {
+  color: #94a3b8 !important;
+}
+
+[data-theme="dark"] .puzzle-sticker-item .border-top {
+  border-top-color: #1e293b !important;
+}
+
+[data-theme="dark"] .puzzle-sticker-item .progress {
+  background-color: #1e293b !important;
+}
+
+[data-theme="dark"] .puzzle-sticker-btn {
+  background: #1e293b !important;
+  border-color: #334155 !important;
+  color: #cbd5e1 !important;
+}
+
+[data-theme="dark"] .puzzle-sticker-btn:hover {
+  background: #334155 !important;
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .puzzle-sticker-btn.danger {
+  color: #f87171 !important;
+}
+
+[data-theme="dark"] .puzzle-sticker-btn.danger:hover {
+  background: rgba(239, 68, 68, 0.2) !important;
+  border-color: #ef4444 !important;
+  color: #fca5a5 !important;
+}
+
+/* Target Prize Banner in Simulator */
+[data-theme="dark"] .puzzle-target-banner {
+  background: #162032 !important;
+  border-color: #312e81 !important;
+  color: #f8fafc !important;
+}
+
+[data-theme="dark"] .puzzle-target-banner .text-dark {
+  color: #f8fafc !important;
+}
+
+[data-theme="dark"] .puzzle-target-banner .text-muted {
+  color: #94a3b8 !important;
+}
+
+/* Simulator Sim Result Box Dark Mode */
+[data-theme="dark"] .puzzle-sim-result {
+  background: #162032 !important;
+  border-color: #334155 !important;
+  color: #f8fafc !important;
+}
+
+[data-theme="dark"] .puzzle-sim-result.success {
+  background: rgba(16, 185, 129, 0.12) !important;
+  border-color: rgba(16, 185, 129, 0.35) !important;
+  color: #f8fafc !important;
+}
+
+[data-theme="dark"] .puzzle-sim-result.default {
+  background: #162032 !important;
+  border-color: #1e293b !important;
+  color: #f8fafc !important;
+}
+
+/* Modals Dark Mode */
+[data-theme="dark"] .puzzle-admin-modal-card {
+  background: #111827 !important;
+  border-color: #1e293b !important;
+  box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.85) !important;
+  color: #f8fafc !important;
+}
+
+[data-theme="dark"] .puzzle-admin-modal-card .border-bottom {
+  border-bottom-color: #1e293b !important;
+}
+
+[data-theme="dark"] .puzzle-admin-modal-card .border-top {
+  border-top-color: #1e293b !important;
+}
+
+[data-theme="dark"] .puzzle-admin-modal-card .bg-light,
+[data-theme="dark"] .puzzle-admin-modal-card .bg-white {
+  background-color: #162032 !important;
+  border-color: #1e293b !important;
+}
+
+[data-theme="dark"] .puzzle-admin-modal-card .form-control,
+[data-theme="dark"] .puzzle-admin-modal-card .form-select {
+  background-color: #0f172a !important;
+  border-color: #334155 !important;
+  color: #f8fafc !important;
+}
+
+[data-theme="dark"] .puzzle-admin-modal-card .form-control:focus,
+[data-theme="dark"] .puzzle-admin-modal-card .form-select:focus {
+  border-color: #10b981 !important;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25) !important;
+}
+
+[data-theme="dark"] .puzzle-admin-modal-card .text-dark {
+  color: #f8fafc !important;
+}
+
+[data-theme="dark"] .puzzle-admin-modal-card .text-muted {
+  color: #94a3b8 !important;
+}
+
+/* Dropdown Select in Simulator */
+[data-theme="dark"] .puzzle-select-dropdown {
+  background-color: #162032 !important;
+  border-color: #334155 !important;
+  color: #f8fafc !important;
+}
+
+/* Table in Drops List */
+[data-theme="dark"] .puzzle-drops-table-head {
+  background: #162032 !important;
+  border-bottom: 1px solid #1e293b !important;
+  color: #cbd5e1 !important;
+}
+
+[data-theme="dark"] .puzzle-drops-table-head th {
+  background: #162032 !important;
+  color: #cbd5e1 !important;
+  border-bottom-color: #1e293b !important;
+}
+
+[data-theme="dark"] .puzzle-drops-table-row td {
+  border-bottom-color: #1e293b !important;
+  color: #cbd5e1 !important;
+}
+
+[data-theme="dark"] .puzzle-drops-table-row:hover td {
+  background-color: rgba(255, 255, 255, 0.03) !important;
+}

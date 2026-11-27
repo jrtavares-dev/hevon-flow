@@ -1,0 +1,1162 @@
+/* ==============================================================================
+   HEVON Design System v2.0 — Official Token Layer & Enterprise SaaS Components
+   Strict adherence to HEVON_DESIGN_SYSTEM.md (Light Mode + Dark Mode)
+   "Tela limpa não significa tela vazia. Significa informação bem hierarquizada."
+   ============================================================================== */
+
+:root {
+  /* Superfícies & Texto (Light Mode) */
+  --background: 210 40% 98%;          /* #F8FAFC — Fundo geral */
+  --foreground: 215 70% 9%;           /* #071327 — Texto principal */
+  --card: 0 0% 100%;                  /* #FFFFFF — Superfície de cards/tabelas */
+  --card-foreground: 220 25% 10%;     /* #131820 */
+  --popover: 0 0% 100%;
+  --popover-foreground: 220 25% 10%;
+  --muted: 220 15% 94%;               /* #EDEEF2 — Superfície secundária */
+  --muted-foreground: 220 10% 46%;    /* #6A707D — Subtítulos / rótulos */
+  --border: 220 15% 90%;              /* #E2E4EB — Bordas sutis */
+  --input: 220 15% 90%;
+  --ring: 220 70% 45%;
+
+  /* Identidade de Marca HEVON */
+  --primary: 250 89% 60%;             /* #5B3DF5 — Roxo/Índigo oficial HEVON */
+  --primary-foreground: 0 0% 100%;    /* #FFFFFF */
+  --secondary: 221 83% 53%;           /* #2563EB — Azul secundário */
+  --secondary-foreground: 0 0% 100%;
+  --accent: 168 70% 42%;              /* #20B59A — Turquesa de apoio */
+  --accent-foreground: 0 0% 100%;
+
+  /* Cores Semânticas */
+  --success: 142 76% 36%;             /* #16A34A — Concluído / Lucro / Pago */
+  --success-foreground: 0 0% 100%;
+  --warning: 38 92% 50%;              /* #F59E0B — Atenção / Pendente */
+  --warning-foreground: 0 0% 100%;
+  --destructive: 0 72% 51%;           /* #DC2626 — Erro / Prejuízo / Bloqueio */
+  --destructive-foreground: 0 0% 100%;
+  --info: 205 85% 50%;                /* #1396EC — Processo / Informativo */
+  --info-foreground: 0 0% 100%;
+  --purple: 262 60% 52%;              /* #753BCE — Estágio especial */
+  --purple-foreground: 0 0% 100%;
+
+  /* Sidebar Escura Fixa (Light Mode) */
+  --sidebar-background: 215 70% 9%;   /* #071327 */
+  --sidebar-foreground: 0 0% 100%;
+  --sidebar-primary: 250 89% 60%;     /* #5B3DF5 */
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 215 70% 15%;
+  --sidebar-accent-foreground: 0 0% 100%;
+  --sidebar-border: 215 70% 12%;
+  --sidebar-ring: 250 89% 60%;
+  --sidebar-muted: 215 30% 40%;
+
+  /* Raio & Espaçamento Oficiais */
+  --radius: 0.625rem;                 /* 10px */
+  --radius-container: 12px;           /* rounded-xl */
+  --radius-control: 8px;              /* rounded-lg */
+  --radius-badge: 6px;                /* rounded-md */
+  --page-max-width: 1440px;
+
+  /* Bridge para variáveis legadas do UpsellFlow (100% mapeado para HEVON) */
+  --brand-primary: hsl(var(--primary));
+  --brand-primary-hover: hsl(250 89% 53%);
+  --brand-primary-light: hsl(var(--primary) / 0.1);
+  --brand-gradient: hsl(var(--primary));
+  --brand-gradient-glow: hsl(var(--primary) / 0.18);
+  --emerald-gradient: hsl(var(--success));
+  --amber-gradient: hsl(var(--warning));
+  --rose-gradient: hsl(var(--destructive));
+  --violet-gradient: hsl(var(--purple));
+  --cyan-gradient: hsl(var(--info));
+
+  --body-bg: hsl(var(--background));
+  --surface-card: hsl(var(--card));
+  --surface-card-hover: hsl(var(--muted) / 0.45);
+  --surface-subtle: hsl(var(--muted) / 0.55);
+  --surface-muted: hsl(var(--muted));
+
+  --sidebar-bg: hsl(var(--sidebar-background));
+  --sidebar-nav-hover: hsl(var(--sidebar-accent) / 0.7);
+  --sidebar-nav-active: hsl(var(--sidebar-accent));
+
+  --btn-primary-bg: hsl(var(--primary));
+  --btn-primary-text: hsl(var(--primary-foreground));
+  --btn-primary-hover: hsl(250 89% 53%);
+
+  --border-subtle: hsl(var(--border) / 0.78);
+  --border-medium: hsl(var(--border));
+  --border-glass: hsl(var(--border) / 0.65);
+
+  --text-main: hsl(var(--foreground));
+  --text-secondary: hsl(220 14% 34%);
+  --text-muted: hsl(var(--muted-foreground));
+  --text-dim: hsl(220 10% 58%);
+
+  /* Profundidade sem poluição (sombras ultra sutis) */
+  --shadow-xs: 0 1px 2px rgba(7, 19, 39, 0.03);
+  --shadow-sm: 0 1px 3px rgba(7, 19, 39, 0.05);
+  --shadow-md: 0 4px 12px rgba(7, 19, 39, 0.06);
+  --shadow-lg: 0 10px 24px rgba(7, 19, 39, 0.08);
+  --shadow-xl: 0 16px 32px rgba(7, 19, 39, 0.12);
+  --shadow-glow: none;
+
+  --primary-hover: hsl(250 89% 53%);
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.dark,
+[data-theme="dark"] {
+  /* Superfícies & Texto (Dark Mode) */
+  --background: 222 30% 8%;           /* #0E121B */
+  --foreground: 220 15% 92%;          /* #E7E9EE */
+  --card: 222 25% 12%;                /* #171C26 */
+  --card-foreground: 220 15% 92%;
+  --popover: 222 25% 12%;
+  --popover-foreground: 220 15% 92%;
+  --muted: 222 20% 16%;               /* #212734 */
+  --muted-foreground: 220 10% 55%;    /* #818898 */
+  --border: 222 20% 20%;              /* #293040 */
+  --input: 222 20% 20%;
+  --ring: 220 70% 55%;
+
+  /* Marca & Semântica (Dark Mode) */
+  --primary: 220 70% 55%;             /* #3B73DD */
+  --primary-foreground: 0 0% 100%;
+  --secondary: 222 20% 18%;
+  --secondary-foreground: 220 15% 85%;
+  --accent: 168 65% 45%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 65% 48%;
+  --destructive-foreground: 0 0% 100%;
+  --success: 152 55% 42%;
+  --success-foreground: 0 0% 100%;
+  --warning: 38 88% 50%;
+  --warning-foreground: 0 0% 10%;
+  --info: 205 80% 52%;
+  --info-foreground: 0 0% 100%;
+  --purple: 262 55% 58%;
+  --purple-foreground: 0 0% 100%;
+
+  /* Sidebar (Dark Mode) */
+  --sidebar-background: 222 35% 7%;
+  --sidebar-foreground: 220 15% 75%;
+  --sidebar-primary: 220 70% 55%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 222 30% 14%;
+  --sidebar-accent-foreground: 220 15% 90%;
+  --sidebar-border: 222 25% 15%;
+  --sidebar-ring: 220 70% 55%;
+  --sidebar-muted: 222 15% 35%;
+
+  /* Bridge legado (Dark Mode) */
+  --brand-primary: hsl(var(--primary));
+  --brand-primary-hover: hsl(220 70% 49%);
+  --brand-primary-light: hsl(var(--primary) / 0.14);
+  --brand-gradient: hsl(var(--primary));
+  --brand-gradient-glow: hsl(var(--primary) / 0.22);
+
+  --body-bg: hsl(var(--background));
+  --surface-card: hsl(var(--card));
+  --surface-card-hover: hsl(var(--muted) / 0.7);
+  --surface-subtle: hsl(var(--muted) / 0.55);
+  --surface-muted: hsl(var(--muted));
+
+  --sidebar-bg: hsl(var(--sidebar-background));
+  --sidebar-nav-hover: hsl(var(--sidebar-accent) / 0.75);
+  --sidebar-nav-active: hsl(var(--sidebar-accent));
+
+  --btn-primary-bg: hsl(var(--primary));
+  --btn-primary-text: hsl(var(--primary-foreground));
+  --btn-primary-hover: hsl(220 70% 49%);
+
+  --border-subtle: hsl(var(--border) / 0.78);
+  --border-medium: hsl(var(--border));
+  --border-glass: hsl(var(--border) / 0.65);
+
+  --text-main: hsl(var(--foreground));
+  --text-secondary: hsl(220 12% 72%);
+  --text-muted: hsl(var(--muted-foreground));
+  --text-dim: hsl(220 10% 42%);
+
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.25);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 10px 24px rgba(0, 0, 0, 0.45);
+  --shadow-xl: 0 16px 32px rgba(0, 0, 0, 0.55);
+}
+
+/* ==============================================================================
+   Tipografia & Base HEVON (escopo Admin Shell + utilitários globais)
+   ============================================================================== */
+.hevon-admin-shell,
+.hevon-admin-shell body {
+  font-family: var(--font-sans);
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-size: 12px;
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+}
+
+.hevon-admin-shell code,
+.hevon-admin-shell pre,
+.hevon-admin-shell .font-monospace,
+.hevon-mono {
+  font-family: var(--font-mono) !important;
+}
+
+.hevon-tabular,
+.hevon-admin-shell .tabular-nums {
+  font-variant-numeric: tabular-nums !important;
+}
+
+/* Escala Tipográfica Oficial */
+.hevon-page-title {
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: hsl(var(--foreground));
+  margin: 0;
+}
+
+.hevon-page-subtitle {
+  font-size: 12px;
+  font-weight: 400;
+  color: hsl(var(--muted-foreground));
+  margin: 3px 0 0 0;
+}
+
+.hevon-kpi-value {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  font-variant-numeric: tabular-nums;
+  color: hsl(var(--foreground));
+}
+
+.hevon-section-title {
+  font-size: 13.5px;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: hsl(var(--foreground));
+  margin: 0;
+}
+
+.hevon-data-primary {
+  font-size: 13px;
+  font-weight: 600;
+  color: hsl(var(--foreground));
+}
+
+.hevon-body {
+  font-size: 12px;
+  font-weight: 400;
+  color: hsl(var(--foreground));
+}
+
+.hevon-data-secondary {
+  font-size: 11px;
+  font-weight: 400;
+  color: hsl(var(--muted-foreground));
+}
+
+.hevon-eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: hsl(var(--muted-foreground));
+}
+
+.hevon-table-header-text {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: hsl(var(--muted-foreground));
+}
+
+/* ==============================================================================
+   Admin Shell — Sidebar Escura Fixa (#071327 Light / hsl(222 35% 7%) Dark)
+   ============================================================================== */
+.hevon-admin-shell .sidebar {
+  width: 248px;
+  background: hsl(var(--sidebar-background)) !important;
+  color: hsl(var(--sidebar-foreground)) !important;
+  border-right: 1px solid hsl(var(--sidebar-border)) !important;
+}
+
+.hevon-admin-shell .sidebar::-webkit-scrollbar-thumb {
+  background: hsl(var(--sidebar-muted) / 0.45);
+}
+
+.hevon-admin-shell .sidebar .brand-icon-box {
+  width: 30px !important;
+  height: 30px !important;
+  border-radius: 8px !important;
+  background: hsl(var(--sidebar-primary)) !important;
+  color: hsl(var(--sidebar-primary-foreground)) !important;
+  box-shadow: none !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+}
+
+.hevon-admin-shell .sidebar-section-title {
+  font-size: 10px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.08em !important;
+  color: hsl(var(--sidebar-muted)) !important;
+  padding: 16px 16px 6px 16px !important;
+}
+
+.hevon-admin-shell .sidebar .nav-link {
+  font-size: 12.5px !important;
+  font-weight: 500 !important;
+  color: hsl(var(--sidebar-foreground) / 0.72) !important;
+  padding: 7px 10px !important;
+  margin: 2px 10px !important;
+  border-radius: var(--radius-control) !important;
+  border: 1px solid transparent !important;
+  gap: 10px !important;
+  box-shadow: none !important;
+}
+
+.hevon-admin-shell .sidebar .nav-link svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  opacity: 0.8;
+}
+
+.hevon-admin-shell .sidebar .nav-link:hover {
+  color: hsl(var(--sidebar-accent-foreground)) !important;
+  background: hsl(var(--sidebar-accent) / 0.65) !important;
+}
+
+.hevon-admin-shell .sidebar .nav-link.active {
+  color: hsl(var(--sidebar-primary-foreground)) !important;
+  font-weight: 600 !important;
+  background: hsl(var(--sidebar-primary)) !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.hevon-admin-shell .sidebar .nav-link.active svg {
+  opacity: 1;
+}
+
+.hevon-admin-shell .sidebar-sublink {
+  font-size: 12px !important;
+  padding: 5px 10px !important;
+  margin: 1px 0 !important;
+  color: hsl(var(--sidebar-foreground) / 0.65) !important;
+  border-radius: 6px !important;
+}
+
+.hevon-admin-shell .sidebar-sublink:hover {
+  color: hsl(var(--sidebar-accent-foreground)) !important;
+  background: hsl(var(--sidebar-accent) / 0.55) !important;
+}
+
+.hevon-admin-shell .sidebar-sublink.active-sub {
+  color: hsl(var(--sidebar-primary-foreground)) !important;
+  background: hsl(var(--sidebar-accent)) !important;
+  font-weight: 600 !important;
+}
+
+.hevon-admin-shell .sidebar-footer {
+  padding: 12px 14px !important;
+  border-top: 1px solid hsl(var(--sidebar-border)) !important;
+  background: hsl(var(--sidebar-background)) !important;
+}
+
+.hevon-admin-shell .sidebar-user {
+  color: hsl(var(--sidebar-foreground)) !important;
+}
+
+.hevon-admin-shell .sidebar-user .user-avatar-circle {
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 9999px !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  background: hsl(var(--sidebar-primary)) !important;
+  color: hsl(var(--sidebar-primary-foreground)) !important;
+  box-shadow: none !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+}
+
+.hevon-admin-shell .sidebar-user .online-dot {
+  width: 8px;
+  height: 8px;
+  background: hsl(var(--success));
+  border: 2px solid hsl(var(--sidebar-background));
+  box-shadow: none;
+}
+
+.hevon-admin-shell .sidebar-logout-btn {
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: var(--radius-control) !important;
+  background: transparent !important;
+  border: 1px solid hsl(var(--sidebar-border)) !important;
+  color: hsl(var(--sidebar-foreground) / 0.65) !important;
+}
+
+.hevon-admin-shell .sidebar-logout-btn:hover {
+  background: hsl(var(--destructive) / 0.18) !important;
+  border-color: hsl(var(--destructive) / 0.4) !important;
+  color: #fca5a5 !important;
+  transform: none !important;
+}
+
+/* ==============================================================================
+   Main Content & Topbar (max-width 1440px, espaçamento oficial HEVON)
+   ============================================================================== */
+.hevon-main-content {
+  margin-left: 248px !important;
+  width: calc(100% - 248px) !important;
+  padding: 0 !important;
+  min-height: 100vh;
+  background-color: hsl(var(--background));
+}
+
+.hevon-page-container {
+  width: 100%;
+  max-width: var(--page-max-width);
+  margin: 0 auto;
+  padding: 20px 24px 36px 24px;
+}
+
+@media (min-width: 1200px) {
+  .hevon-page-container {
+    padding: 24px 32px 40px 32px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .hevon-main-content {
+    margin-left: 0 !important;
+    width: 100% !important;
+    padding: 0 !important;
+  }
+  .hevon-page-container {
+    padding: 16px 16px 32px 16px;
+  }
+}
+
+.hevon-admin-shell .topbar {
+  height: 56px !important;
+  min-height: 56px !important;
+  border-radius: 0 !important;
+  margin-bottom: 0 !important;
+  padding: 0 24px !important;
+  background: hsl(var(--card) / 0.92) !important;
+  border-bottom: 1px solid hsl(var(--border) / 0.7) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 99;
+}
+
+@media (min-width: 1200px) {
+  .hevon-admin-shell .topbar {
+    padding: 0 32px !important;
+  }
+}
+
+.hevon-admin-shell .search-input {
+  height: 34px;
+  border-radius: var(--radius-control) !important;
+  background-color: hsl(var(--muted) / 0.6) !important;
+  border: 1px solid hsl(var(--border) / 0.75) !important;
+  color: hsl(var(--foreground)) !important;
+  font-size: 12px !important;
+  padding: 0 46px 0 32px !important;
+}
+
+.hevon-admin-shell .search-input::placeholder {
+  color: hsl(var(--muted-foreground)) !important;
+}
+
+.hevon-admin-shell .search-input:focus {
+  background-color: hsl(var(--card)) !important;
+  border-color: hsl(var(--ring)) !important;
+  box-shadow: 0 0 0 2px hsl(var(--ring) / 0.18) !important;
+}
+
+.hevon-admin-shell .search-icon {
+  color: hsl(var(--muted-foreground)) !important;
+  left: 10px !important;
+}
+
+.hevon-admin-shell .search-badge {
+  font-family: var(--font-mono);
+  font-size: 10px !important;
+  font-weight: 600 !important;
+  background: hsl(var(--card)) !important;
+  color: hsl(var(--muted-foreground)) !important;
+  border: 1px solid hsl(var(--border)) !important;
+  border-radius: 5px !important;
+  padding: 1px 5px !important;
+}
+
+.hevon-admin-shell .topbar .user-avatar-circle {
+  width: 30px !important;
+  height: 30px !important;
+  border-radius: 9999px !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  background: hsl(var(--primary)) !important;
+  color: hsl(var(--primary-foreground)) !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* ==============================================================================
+   Superfícies, Cards, Botões, Inputs & Tabelas (Disciplina HEVON)
+   ============================================================================== */
+.hevon-admin-shell .card,
+.hevon-card {
+  background: hsl(var(--card)) !important;
+  color: hsl(var(--card-foreground));
+  border: 1px solid hsl(var(--border) / 0.7) !important;
+  border-radius: var(--radius-container) !important;
+  box-shadow: none !important;
+  transition: border-color 0.15s ease !important;
+}
+
+.hevon-admin-shell .card:hover {
+  border-color: hsl(var(--border)) !important;
+  transform: none !important;
+}
+
+.hevon-admin-shell .card-header {
+  background-color: transparent !important;
+  border-bottom: 1px solid hsl(var(--border) / 0.65) !important;
+  padding: 14px 16px !important;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: hsl(var(--foreground));
+}
+
+.hevon-admin-shell .kpi-card {
+  border-radius: var(--radius-container) !important;
+  padding: 16px !important;
+  background: hsl(var(--card)) !important;
+  border: 1px solid hsl(var(--border) / 0.7) !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+.hevon-admin-shell .kpi-card:hover {
+  transform: none !important;
+  box-shadow: none !important;
+  border-color: hsl(var(--border)) !important;
+}
+
+.hevon-admin-shell .kpi-card-glow-green::after {
+  display: none !important;
+}
+
+/* Botões HEVON (altura 36px padrão / 32px compacto, radius 8px, sem glow pesado) */
+.hevon-admin-shell .btn {
+  border-radius: var(--radius-control) !important;
+  font-weight: 500;
+  font-size: 12.5px;
+  min-height: 36px;
+  padding: 0 14px;
+  box-shadow: none !important;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease !important;
+}
+
+.hevon-admin-shell .btn-sm {
+  min-height: 30px;
+  height: 32px;
+  padding: 0 11px;
+  font-size: 12px;
+}
+
+.hevon-admin-shell .btn:active {
+  transform: none !important;
+}
+
+.hevon-admin-shell .btn-primary {
+  background: hsl(var(--primary)) !important;
+  border: 1px solid hsl(var(--primary)) !important;
+  color: hsl(var(--primary-foreground)) !important;
+  box-shadow: none !important;
+  font-weight: 500 !important;
+}
+
+.hevon-admin-shell .btn-primary:hover {
+  background: hsl(var(--primary) / 0.9) !important;
+  border-color: hsl(var(--primary) / 0.9) !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.hevon-admin-shell .btn-outline-primary {
+  background: transparent !important;
+  border: 1px solid hsl(var(--primary) / 0.35) !important;
+  color: hsl(var(--primary)) !important;
+  box-shadow: none !important;
+}
+
+.hevon-admin-shell .btn-outline-primary:hover {
+  background: hsl(var(--primary) / 0.1) !important;
+  border-color: hsl(var(--primary) / 0.55) !important;
+  color: hsl(var(--primary)) !important;
+  transform: none !important;
+}
+
+.hevon-admin-shell .btn-outline-secondary,
+.hevon-admin-shell .btn-light {
+  background: hsl(var(--card)) !important;
+  border: 1px solid hsl(var(--border)) !important;
+  color: hsl(var(--foreground)) !important;
+}
+
+.hevon-admin-shell .btn-outline-secondary:hover,
+.hevon-admin-shell .btn-light:hover {
+  background: hsl(var(--muted) / 0.7) !important;
+  border-color: hsl(var(--border)) !important;
+  color: hsl(var(--foreground)) !important;
+}
+
+.hevon-admin-shell .btn-success {
+  background: hsl(var(--success)) !important;
+  border: 1px solid hsl(var(--success)) !important;
+  color: hsl(var(--success-foreground)) !important;
+  box-shadow: none !important;
+}
+
+.hevon-admin-shell .btn-danger {
+  background: hsl(var(--destructive)) !important;
+  border: 1px solid hsl(var(--destructive)) !important;
+  color: hsl(var(--destructive-foreground)) !important;
+  box-shadow: none !important;
+}
+
+/* Inputs & Form Controls */
+.hevon-admin-shell .form-control,
+.hevon-admin-shell .form-select {
+  min-height: 36px;
+  border-radius: var(--radius-control) !important;
+  border: 1px solid hsl(var(--input)) !important;
+  background-color: hsl(var(--card)) !important;
+  color: hsl(var(--foreground)) !important;
+  font-size: 12.5px;
+}
+
+.hevon-admin-shell .form-control-sm,
+.hevon-admin-shell .form-select-sm {
+  min-height: 32px;
+  font-size: 12px;
+}
+
+.hevon-admin-shell .form-control:focus,
+.hevon-admin-shell .form-select:focus {
+  border-color: hsl(var(--ring)) !important;
+  box-shadow: 0 0 0 2px hsl(var(--ring) / 0.18) !important;
+  background-color: hsl(var(--card)) !important;
+  color: hsl(var(--foreground)) !important;
+}
+
+.hevon-admin-shell .form-switch .form-check-input:checked,
+.hevon-admin-shell .form-check-input:checked {
+  background-color: hsl(var(--primary)) !important;
+  border-color: hsl(var(--primary)) !important;
+}
+
+/* Cores de texto semânticas (100% compatíveis Light + Dark) */
+.hevon-admin-shell .text-primary {
+  color: hsl(var(--primary)) !important;
+}
+
+.hevon-admin-shell .bg-primary-subtle {
+  background-color: hsl(var(--primary) / 0.1) !important;
+  color: hsl(var(--primary)) !important;
+}
+
+.hevon-admin-shell .border-primary-subtle {
+  border-color: hsl(var(--primary) / 0.25) !important;
+}
+
+.hevon-admin-shell .text-dark {
+  color: hsl(var(--foreground)) !important;
+}
+
+.hevon-admin-shell .text-muted {
+  color: hsl(var(--muted-foreground)) !important;
+}
+
+.hevon-admin-shell .bg-white {
+  background-color: hsl(var(--card)) !important;
+}
+
+.hevon-admin-shell .bg-light {
+  background-color: hsl(var(--muted) / 0.5) !important;
+}
+
+.hevon-admin-shell .border,
+.hevon-admin-shell .border-top,
+.hevon-admin-shell .border-bottom {
+  border-color: hsl(var(--border) / 0.7) !important;
+}
+
+/* Period Pills HEVON */
+.hevon-admin-shell .responsive-toolbar-scroll {
+  background: hsl(var(--muted) / 0.55) !important;
+  border: 1px solid hsl(var(--border) / 0.7) !important;
+  border-radius: var(--radius-control) !important;
+  padding: 3px !important;
+  gap: 2px !important;
+  box-shadow: none !important;
+}
+
+.hevon-admin-shell .period-pill {
+  padding: 5px 10px !important;
+  border-radius: 6px !important;
+  font-size: 11.5px !important;
+  font-weight: 500 !important;
+  color: hsl(var(--muted-foreground)) !important;
+  border: 1px solid transparent !important;
+}
+
+.hevon-admin-shell .period-pill:hover {
+  color: hsl(var(--foreground)) !important;
+  background: hsl(var(--muted)) !important;
+}
+
+.hevon-admin-shell .period-pill.active {
+  background: hsl(var(--card)) !important;
+  color: hsl(var(--foreground)) !important;
+  font-weight: 600 !important;
+  border: 1px solid hsl(var(--border) / 0.8) !important;
+  box-shadow: var(--shadow-xs) !important;
+}
+
+/* Tabelas HEVON (Compact 48px / Standard 56px / Two-line 62px) */
+.hevon-admin-shell .table {
+  color: hsl(var(--foreground)) !important;
+  font-size: 12px;
+}
+
+.hevon-admin-shell .table thead th {
+  background-color: hsl(var(--muted) / 0.45) !important;
+  color: hsl(var(--muted-foreground)) !important;
+  font-size: 10px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.06em !important;
+  padding: 10px 16px !important;
+  border-bottom: 1px solid hsl(var(--border) / 0.75) !important;
+}
+
+.hevon-admin-shell .table tbody td {
+  background-color: transparent !important;
+  color: hsl(var(--foreground));
+  padding: 10px 16px !important;
+  border-bottom: 1px solid hsl(var(--border) / 0.55) !important;
+  vertical-align: middle;
+  font-size: 12px;
+}
+
+.hevon-admin-shell .table-hover tbody tr:hover td {
+  background-color: hsl(var(--muted) / 0.35) !important;
+}
+
+.hevon-table-compact tbody tr {
+  height: 48px;
+}
+.hevon-table-compact tbody td {
+  padding: 8px 16px !important;
+}
+
+.hevon-table-standard tbody tr {
+  height: 56px;
+}
+.hevon-table-standard tbody td {
+  padding: 12px 16px !important;
+}
+
+.hevon-table-two-line tbody tr {
+  height: 62px;
+}
+.hevon-table-two-line tbody td {
+  padding: 10px 16px !important;
+}
+
+.hevon-table-row-clickable {
+  cursor: pointer;
+}
+
+.hevon-table-total-row td {
+  background-color: hsl(var(--muted) / 0.35) !important;
+  font-weight: 600 !important;
+  border-top: 1px solid hsl(var(--border)) !important;
+  border-bottom: none !important;
+}
+
+/* ==============================================================================
+   Componentes Base HEVON (src/components/hevon/)
+   ============================================================================== */
+
+/* HevonPageHeader */
+.hevon-page-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 14px;
+  padding-bottom: 18px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid hsl(var(--border) / 0.6);
+}
+
+/* HevonToolbar */
+.hevon-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+/* HevonMetricCard (3 linhas limpas, sem ícones decorativos) */
+.hevon-metric-card {
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border) / 0.7);
+  border-radius: var(--radius-container);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  height: 100%;
+}
+
+.hevon-metric-label {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: hsl(var(--muted-foreground));
+  line-height: 1.2;
+}
+
+.hevon-metric-value {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  font-variant-numeric: tabular-nums;
+  color: hsl(var(--foreground));
+}
+
+.hevon-metric-context {
+  font-size: 11px;
+  font-weight: 400;
+  color: hsl(var(--muted-foreground));
+  line-height: 1.3;
+}
+
+/* HevonStatusBadge (piso 10px, radius 6px, contraste Light + Dark) */
+.hevon-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 20px;
+  padding: 2px 8px;
+  border-radius: var(--radius-badge);
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: nowrap;
+  border: 1px solid transparent;
+}
+
+.hevon-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background-color: currentColor;
+  flex-shrink: 0;
+}
+
+.hevon-badge-success {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: #047857;
+  border-color: rgba(16, 185, 129, 0.25);
+}
+.dark .hevon-badge-success,
+[data-theme="dark"] .hevon-badge-success {
+  color: #34d399;
+}
+
+.hevon-badge-warning {
+  background-color: rgba(245, 158, 11, 0.1);
+  color: #b45309;
+  border-color: rgba(245, 158, 11, 0.25);
+}
+.dark .hevon-badge-warning,
+[data-theme="dark"] .hevon-badge-warning {
+  color: #fbbf24;
+}
+
+.hevon-badge-danger {
+  background-color: rgba(244, 63, 94, 0.1);
+  color: #be123c;
+  border-color: rgba(244, 63, 94, 0.25);
+}
+.dark .hevon-badge-danger,
+[data-theme="dark"] .hevon-badge-danger {
+  color: #fb7185;
+}
+
+.hevon-badge-info {
+  background-color: rgba(19, 150, 236, 0.1);
+  color: #0369a1;
+  border-color: rgba(19, 150, 236, 0.25);
+}
+.dark .hevon-badge-info,
+[data-theme="dark"] .hevon-badge-info {
+  color: #38bdf8;
+}
+
+.hevon-badge-purple {
+  background-color: rgba(117, 59, 206, 0.1);
+  color: #6d28d9;
+  border-color: rgba(117, 59, 206, 0.25);
+}
+.dark .hevon-badge-purple,
+[data-theme="dark"] .hevon-badge-purple {
+  color: #c084fc;
+}
+
+.hevon-badge-primary {
+  background-color: hsl(var(--primary) / 0.1);
+  color: hsl(var(--primary));
+  border-color: hsl(var(--primary) / 0.25);
+}
+
+.hevon-badge-neutral {
+  background-color: hsl(var(--muted) / 0.8);
+  color: hsl(var(--muted-foreground));
+  border-color: hsl(var(--border));
+}
+
+/* HevonFormSection (apenas tipografia numerada, não é card) */
+.hevon-form-section {
+  padding-top: 20px;
+  margin-top: 20px;
+  border-top: 1px solid hsl(var(--border) / 0.6);
+}
+
+.hevon-form-section:first-child {
+  padding-top: 0;
+  margin-top: 0;
+  border-top: none;
+}
+
+.hevon-form-section-eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: hsl(var(--primary));
+  margin-bottom: 4px;
+}
+
+.hevon-form-section-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: hsl(var(--foreground));
+  margin: 0 0 2px 0;
+}
+
+.hevon-form-section-desc {
+  font-size: 12px;
+  color: hsl(var(--muted-foreground));
+  margin: 0 0 14px 0;
+}
+
+/* HevonSummaryPanel (painel lateral persistente com faltando[]) */
+.hevon-summary-panel {
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border) / 0.75);
+  border-radius: var(--radius-container);
+  padding: 16px;
+  position: sticky;
+  top: 76px;
+}
+
+.hevon-summary-missing {
+  background: rgba(245, 158, 11, 0.09);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  border-radius: var(--radius-control);
+  padding: 10px 12px;
+  font-size: 11.5px;
+  color: #b45309;
+}
+
+.dark .hevon-summary-missing,
+[data-theme="dark"] .hevon-summary-missing {
+  color: #fbbf24;
+}
+
+/* HevonEmptyState */
+.hevon-empty-state {
+  padding: 36px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* HevonIconButton */
+.hevon-icon-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-control);
+  border: 1px solid hsl(var(--border) / 0.75);
+  background: hsl(var(--card));
+  color: hsl(var(--muted-foreground));
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.hevon-icon-btn:hover:not(:disabled) {
+  background: hsl(var(--muted) / 0.7);
+  color: hsl(var(--foreground));
+  border-color: hsl(var(--border));
+}
+
+.hevon-icon-btn-danger:hover:not(:disabled) {
+  background: rgba(244, 63, 94, 0.1);
+  color: #be123c;
+  border-color: rgba(244, 63, 94, 0.3);
+}
+.dark .hevon-icon-btn-danger:hover:not(:disabled),
+[data-theme="dark"] .hevon-icon-btn-danger:hover:not(:disabled) {
+  color: #fb7185;
+}
+
+/* HevonSkeleton (Zero ≠ Vazio ≠ Carregando) */
+.hevon-skeleton {
+  display: block;
+  border-radius: 6px;
+  background: linear-gradient(
+    90deg,
+    hsl(var(--muted) / 0.7) 25%,
+    hsl(var(--muted)) 50%,
+    hsl(var(--muted) / 0.7) 75%
+  );
+  background-size: 200% 100%;
+  animation: hevonSkeletonPulse 1.4s ease-in-out infinite;
+}
+
+@keyframes hevonSkeletonPulse {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Rodapé Metodológico Discreto (Baseline 4) */
+.hevon-methodology-footer {
+  border-top: 1px solid hsl(var(--border) / 0.65);
+  padding-top: 14px;
+  margin-top: 24px;
+  font-size: 11px;
+  color: hsl(var(--muted-foreground));
+  line-height: 1.5;
+}
+
+/* Status Pill de Macroestado / Filtro Rápido (Baseline 2) */
+.hevon-filter-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 30px;
+  padding: 0 10px;
+  border-radius: var(--radius-control);
+  border: 1px solid hsl(var(--border) / 0.75);
+  background: hsl(var(--card));
+  color: hsl(var(--muted-foreground));
+  font-size: 11.5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.hevon-filter-pill:hover {
+  background: hsl(var(--muted) / 0.6);
+  color: hsl(var(--foreground));
+}
+
+.hevon-filter-pill.active {
+  background: hsl(var(--primary) / 0.1);
+  border-color: hsl(var(--primary) / 0.35);
+  color: hsl(var(--primary));
+  font-weight: 600;
+}
+
+.hevon-filter-pill-count {
+  font-size: 10px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  padding: 1px 6px;
+  border-radius: 9999px;
+  background: hsl(var(--muted));
+  color: hsl(var(--muted-foreground));
+}
+
+.hevon-filter-pill.active .hevon-filter-pill-count {
+  background: hsl(var(--primary) / 0.18);
+  color: hsl(var(--primary));
+}
+
+/* Progress bars semânticos */
+.hevon-admin-shell .progress {
+  background-color: hsl(var(--muted)) !important;
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.hevon-admin-shell .progress-bar.bg-primary {
+  background-color: hsl(var(--primary)) !important;
+}
+
+/* Garantir piso absoluto de 10px em badges e textos do admin */
+.hevon-admin-shell .badge {
+  font-size: max(10px, 0.7rem);
+  border-radius: var(--radius-badge);
+}
+
+/* Container adaptativo da logo HEVON FLOW em superfícies claras vs escuras */
+.hevon-logo-auto-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 10px;
+  border-radius: 8px;
+  background-color: hsl(215 70% 9%); /* #071327 no Light Mode para máximo contraste */
+  border: 1px solid hsl(215 70% 15%);
+}
+
+.dark .hevon-logo-auto-wrap,
+[data-theme="dark"] .hevon-logo-auto-wrap {
+  padding: 0;
+  background-color: transparent;
+  border-color: transparent;
+}

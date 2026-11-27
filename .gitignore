@@ -1,0 +1,16 @@
+.env
+.env*.local
+.env.production
+.env.staging
+*.zip
+*.gz
+node_modules/
+.next/
+scratch/
+certs/*.key
+certs/*.pem
+CherminhoLinks/
+/puzzle/
+.DS_Store
+Thumbs.db
+.github-export/
